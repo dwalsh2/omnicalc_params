@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   
   get("/flexible/payment/:basis_points/:number_of_years/:present_value", { :controller => "calculations", :action => "flex_payment" })
   
+  get("/flexible/random/:low_bound/:high_bound", { :controller => "calculations", :action => "flex_random"})
+  
   get("/square/new", { :controller => "calculations", :action => "square_form" })
   
   get("/square/results", { :controller => "calculations", :action => "process_square" })
