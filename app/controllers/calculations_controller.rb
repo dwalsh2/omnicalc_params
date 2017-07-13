@@ -36,13 +36,10 @@ class CalculationsController < ApplicationController
     @user_random_result = rand(@user_low_bound...@user_high_bound)
     
     # @range = @user_high_bound - @user_low_bound
-    
     # @user_random_range = rand(@range)
-    
     # @user_random_result = @user_random_range + @user_low_bound
     
     render("calculations/flexible_random_template.html.erb")
-    
   end    
   
   def square_form
@@ -50,7 +47,7 @@ class CalculationsController < ApplicationController
     render("calculations/square_form_template.html.erb")
   end
   
-   def process_square
+  def process_square
     
     @user_number = params["the_user_number"].to_i
     @squared_number = @user_number**2
@@ -58,6 +55,32 @@ class CalculationsController < ApplicationController
     render("calculations/square_results_template.html.erb")
   end
   
+  def square_root_form
+    
+    render("calculations/square_root_form_template.html.erb")
+  end
   
+  def process_square_root
+    
+    @user_number = params["the_user_number"].to_i
+    @square_root_number = Math.sqrt(@user_number)
+    
+    render("calculations/square_root_results_template.html.erb")
+  end
   
+  def payment_form
+    
+    render("calculations/payment_form_template.html.erb")
+  end
+  
+  def process_payment
+    
+    @user_apr = params["user_apr"].to_f
+    @user_years = params["user_years"].to_i
+    @user_present_value = params["user_principal"].to_i
+    
+    @monthly_payment = (@user_present_value*((@user_apr/100/12)*(((1+(@user_apr/12/100))**(@user_years*12))))/(((1+(@user_apr/12/100))**(@user_years*12))-1)) 
+      
+    render("calculations/payment_results_template.html.erb")  
+  end
 end

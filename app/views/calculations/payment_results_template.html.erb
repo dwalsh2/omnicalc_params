@@ -1,0 +1,15 @@
+<h1>Payment Results</h1>
+
+<p><b>APR</b><br>
+<%= number_to_percentage(@user_apr) %></p>
+
+<p><b>Number of years</b><br>
+<%= @user_years %></p>
+
+<p><b>Principal</b><br>
+<%= number_to_currency(@user_present_value) %></p>
+
+<p><b>Payment</b><br>
+<%= number_to_currency(@monthly_payment) %></p>
+
+<a href="/payment/new">Calculate another payment</a>
