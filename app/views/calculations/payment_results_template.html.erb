@@ -1,9 +1,10 @@
 <h1>Payment Results</h1>
 
 <p><b>APR</b><br>
-<%= number_to_percentage(@user_apr) %></p>
+<%= number_to_percentage(@user_apr.round(4)) %></p>
 
 <p><b>Number of years</b><br>
+
 <%= @user_years %></p>
 
 <p><b>Principal</b><br>
